@@ -1,4 +1,4 @@
-# gs-quantify2016
+# GS Quantify 2016
 Questions attempted in GS Quantify conducted by Goldman Sachs
 
 --------
@@ -56,3 +56,25 @@ Space Complexity = **O(n + kj)**
 "query \<k\>" : **O(log k + jlog j)**
 
 "query \<orig\>" : **O(log k + jlog j)**
+
+--------
+
+### QUestion 2 : Bond Liquidity Prediction
+
+Historical data for 3 month time period is given. But, upon analyzing the data, we realized that the minimum date for each transaction takes place is 16th March 2016 and maximum date for which it happens is 9th June 2016. So, effectively time duration for which data is given is 86 days.
+
+* First of all, we converted nominal features to integer values, i.e., **industryGroup10** was
+converted to 10 as it should be evaluated by the machine learning algorithm we later apply.
+* All the values containing **Nan** were replaced with 0.
+* We have removed features containing dates like **issueDate**, **maturity**, **ratingAgency1EffectiveDate**.
+* We have categorized features into two parts: ***Static Features*** and ***Time-Dependent Features***. Static Features contains features which are time invariant like **issuer**, **market**, **amtOutstanding**, **collateralType** etc. Time-Dependent features contains features that are vary on daily basis.
+* For each bond, we have calculated the sum of buy volumes for a given day and considered it as a time-dependent feature for that bond. This way, we come up with 86 time-dependent features for each bond which contain sum of values of buy volumes for each day. Similarly, we can calculate 86 time-dependent features for sell volumes. We aim to evaluate the buy and sell volumes separately i.e., train a regressor separately for buy and sell volumes.
+* We have assumed that sequence of buy/sell volumes for each day follows a time series i.e., the volumes are dependent on values of buy/sell volumes of last few days. We have taken 85 days into account. So, value for buy/sell volumes for 86th day will depend on values of last 85 days.
+* After predicting the value of buy/sell volumes for 87th day using 2nd to 86th day, we multiplied it by factor of 3 assuming average will be same on 3 days. This assumption has been taken due to lack of accurate answers, i.e., 87th day has been predicted by our algorithm. So, we do not want to use it to predict for 88th day as it would lead to erroneous prediction, Rather, we considered it to be same and multiplied the result of 87th day by 3.
+
+After preparing and preprocessing the data, we generated 6 Data Frames:
+
+
+
+
+
