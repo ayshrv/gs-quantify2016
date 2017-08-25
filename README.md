@@ -61,6 +61,8 @@ Space Complexity = **O(n + kj)**
 
 ### Question 2 : Bond Liquidity Prediction
 
+*The dataset for this problem can be downloaded from [here](https://drive.google.com/file/d/0B-iGspODhEtrNEM1c0plaWg2UFE/view?usp=sharing)*
+
 Historical data for 3 month time period is given. But, upon analyzing the data, we realized that the minimum date for each transaction takes place is 16th March 2016 and maximum date for which it happens is 9th June 2016. So, effectively time duration for which data is given is 86 days.
 
 * First of all, we converted nominal features to integer values, i.e., **industryGroup10** was
@@ -105,7 +107,7 @@ where
 * `Stest_y1`, `Stest_y2`, `Stest_y3` represent values by approaches 1, 2, 3 for sell volumes.
 * `mean_B / mean_S` represents values predicted by statistical approach for buy/sell volumes.
 
-After running the algorithms several times, the best accuracy achieved was nearly 65%. 
+After running the algorithms several times, the best accuracy achieved was nearly **65%**. 
 
 This accuracy can be justified as for several bonds, number of transactions taking place within 3 months is low or almost zero. So, the predicted values of volumes for several bonds are zero which may not the real scenario.
 
