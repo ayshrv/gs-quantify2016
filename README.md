@@ -15,6 +15,11 @@ The system has the following data structures:
 	* An binary tree was used instead of a hash-map to avoid performance degradation due to the nature of memory (paging, cache locality).
 
 2. A Bi-directional map to store instructions and originating string and an identifier integer, for efficient access from both key and value.
+
+
+
+
+
    	* A hash-map is used instead of a binary tree map to avoid overheads and because the size of the tree is given to not be too large. 
 3. A priority queue of jobs currently waiting in the queue.
 	* Build-in abstract priority_queue is a heap, sorted in the order of increasing priority.
