@@ -5,6 +5,10 @@ Questions attempted in GS Quantify conducted by Goldman Sachs
 
 ### Question 1 : Job Scheduler
 
+
+
+
+
 #### Assumptions:
 1. Priority of no 2 jobs will ever be equal (given).
 
